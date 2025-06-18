@@ -177,7 +177,7 @@
                                             <h6 class="text-muted">
                                                 <i
                                                     class="fas fa-circle text-success text-[10px] ltr:mr-4 rtl:ml-4"></i>
-                                                21 July 12:56
+                                                21 July 
                                             </h6>
                                         </td>
                                         <td>
