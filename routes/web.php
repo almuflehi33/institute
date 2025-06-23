@@ -6,6 +6,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/app-layout', function () {
+Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
