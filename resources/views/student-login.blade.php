@@ -104,7 +104,7 @@
                                     </h6>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    <button type="button" class="btn btn-primary mx-auto shadow-2xl">Login</button>
+                                    <button type="submit" class="btn btn-primary mx-auto shadow-2xl">Login</button>
                                 </div>
                                 <div class="flex justify-between items-end flex-wrap mt-4">
                                     <h6 class="font-medium mb-0">Don't have an Account?</h6>

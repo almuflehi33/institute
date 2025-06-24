@@ -50,7 +50,7 @@ class StudentsController extends Controller
 
 
         if (Auth::guard(name: 'student')->attempt($credentials)) {
-            return redirect()->intended('student.dashboard');
+            return redirect()->intended('student/dashboard');
         }
         return back()->withErrors(['email' => 'Invalid credentials']);
     }
