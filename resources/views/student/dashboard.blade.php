@@ -1,4 +1,4 @@
-@extends('admin.app-layout')
+@extends('student.app-layout-student')
 @section('breadcrumb')
     <div class="page-header">
         <div class="page-block">

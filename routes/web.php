@@ -13,18 +13,29 @@ Route::get('/dashboard', function () {
 
 
 //Student 
-Route::get('/student-register', function () {
-    return view('student-register');
-});
-
-Route::post(
-    '/app-layout-student',
-    //  function () {
-    //     return view('student.dashboard');
-    // }
-    [StudentsController::class, 'store']
+// Student Dashboard
+Route::get(
+    '/student/dashboard',
+    function () {
+        return view('student.dashboard');
+    }
 )->name('student.dashboard');
-
+// Student Registration
+Route::get(
+    '/student-register',
+    function () {
+        return view('student-register');
+    }
+)->name('student-register');
+Route::post(
+    '/register-student',
+    [StudentsController::class, 'store']
+)->name('register-student');
+//Student Login
 Route::get('/student-login', function () {
     return view('student-login');
 })->name('student.login');
+Route::post(
+    '/login-student',
+    [StudentsController::class, 'login_student']
+)->name('login-student');

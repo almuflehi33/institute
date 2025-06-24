@@ -55,7 +55,7 @@
                             class="absolute left-[-100px] bottom-[-100px] w-[300px] h-[300px] block rounded-full bg-theme-bg-2 animate-[floating_9s_infinite]"></span>
                     </div>
 
-                    <form method="POST" action="{{ route('student.dashboard') }}">
+                    <form method="POST" action="{{ route('register-student') }}">
                         @csrf
                         <div class="card sm:my-12  w-full shadow-none">
                             <div class="card-body !p-10">
