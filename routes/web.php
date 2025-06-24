@@ -22,5 +22,9 @@ Route::post(
     //  function () {
     //     return view('student.dashboard');
     // }
-    // [StudentsController::class, 'register']
+    [StudentsController::class, 'store']
 )->name('student.dashboard');
+
+Route::get('/student-login', function () {
+    return view('student-login');
+})->name('student.login');
