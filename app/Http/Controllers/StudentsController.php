@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,7 +30,7 @@ class StudentsController extends Controller
             'notes' => 'nullable|string|max:500',
         ]);
         // Create a new student record
-        $student = DB::insert([
+        $student = Student::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password), // Hash the password
