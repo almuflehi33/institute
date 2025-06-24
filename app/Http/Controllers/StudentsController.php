@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,8 +13,6 @@ class StudentsController extends Controller
     {
         return view('student.dashboard');
     }
-
-    public function create() {}
 
     public function store(Request $request)
     {
@@ -38,10 +37,21 @@ class StudentsController extends Controller
             'address' => $request->address,
             'edclevel' => $request->edclevel,
             'birthdate' => $request->birthdate,
-            'gender' => $request->gender??'on' == 'on'?1:0, // Convert 'on' to 1 and null to 0
+            'gender' => $request->gender ?? 'on' == 'on' ? 1 : 0, // Convert 'on' to 1 and null to 0
             'notes' => $request->notes,
         ]);
         // Redirect to the student dashboard with a success message
         return redirect()->route('student.dashboard')->with('success', 'Student registered successfully!');
+    }
+
+    public function login_student(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+
+        if (Auth::guard(name: 'student')->attempt($credentials)) {
+            return redirect()->intended('student.dashboard');
+        }
+        return back()->withErrors(['email' => 'Invalid credentials']);
     }
 }
