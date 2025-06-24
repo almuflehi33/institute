@@ -29,7 +29,7 @@ class StudentsController extends Controller
             'notes' => 'nullable|string|max:500',
         ]);
         // Create a new student record
-        $student = DB::create([
+        $student = DB::insert([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password), // Hash the password
