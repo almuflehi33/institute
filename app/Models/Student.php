@@ -26,5 +26,7 @@ class Student extends Model
         'gender',
         'notes',
     ];
+
     
+
 }
