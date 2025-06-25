@@ -15,9 +15,9 @@ Route::get('/login',fn () => 'please login first')->name('login');
 //Student 
 // Student Dashboard
 Route::prefix('student')->group(function () {
-    Route::middleware('auth:customer')->group(function () {
+    Route::middleware('auth:student')->group(function () {
         Route::get(
-            '/student/dashboard',
+            '/dashboard',
             function () {
                 return view('student.dashboard');
             }
@@ -26,21 +26,21 @@ Route::prefix('student')->group(function () {
 
     // Student Registration
     Route::get(
-        '/student-register',
+        '/register',
         function () {
             return view('student-register');
         }
-    )->name('student-register');
+    )->name('register');
     Route::post(
-        '/register-student',
+        '/register',
         [StudentsController::class, 'store']
-    )->name('register-student');
+    )->name('register');
     //Student Login
-    Route::get('/student-login', function () {
+    Route::get('/login', function () {
         return view('student-login');
-    })->name('student.login');
+    })->name('login');
     Route::post(
-        '/login-student',
+        '/login',
         [StudentsController::class, 'login_student']
-    )->name('login-student');
+    )->name('login');
 });
