@@ -39,7 +39,7 @@ class TeachersController extends Controller
             'notes' => $request->notes,
         ]);
         // Redirect to the student dashboard with a success message
-        return redirect()->route('teacher.dashboard')->with('success', 'Student registered successfully!');
+        return redirect()->route('teacher.dashboard')->with('success', 'Teacher registered successfully!');
     }
 
     public function login_teacher(Request $request)
@@ -51,5 +51,11 @@ class TeachersController extends Controller
             return redirect()->intended('teacher/dashboard');
         }
         return back()->withErrors(['email' => 'Invalid credentials']);
+    }
+
+    public function logout()
+    {
+        Auth::guard('teacher')->logout();
+        return redirect('/teacher/login')->with('success', 'Logged out successfully');
     }
 }

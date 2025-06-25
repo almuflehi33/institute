@@ -55,7 +55,7 @@
                             class="absolute left-[-100px] bottom-[-100px] w-[300px] h-[300px] block rounded-full bg-theme-bg-2 animate-[floating_9s_infinite]"></span>
                     </div>
 
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('student.register') }}">
                         @csrf
                         <div class="card sm:my-12  w-full shadow-none">
                             <div class="card-body !p-10">
@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="flex justify-between items-end flex-wrap mt-4">
                                     <h6 class="font-medium mb-0">Already have an Account?</h6>
-                                    <a href="{{route('login')}}" class="text-primary-500">Login</a>
+                                    <a href="{{route('student.login')}}" class="text-primary-500">Login</a>
                                 </div>
                             </div>
                         </div>

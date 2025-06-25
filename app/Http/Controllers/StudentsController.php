@@ -55,5 +55,9 @@ class StudentsController extends Controller
         return back()->withErrors(['email' => 'Invalid credentials']);
     }
 
-    
+    public function logout()
+    {
+        Auth::guard('student')->logout();
+        return redirect('/student/login')->with('success', 'Logged out successfully');
+    }
 }

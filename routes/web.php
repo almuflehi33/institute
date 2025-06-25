@@ -12,7 +12,9 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/login',fn () => 'please login first')->name('login');
+// Route::get('/login', fn() => 'please login first')->name('login');
+
+
 //Student 
 // Student Dashboard
 Route::prefix('student')->group(function () {
@@ -23,6 +25,7 @@ Route::prefix('student')->group(function () {
                 return view('student.dashboard');
             }
         )->name('student.dashboard');
+        Route::post('logout', [StudentsController::class, 'logout'])->name('student.logout');
     });
 
     // Student Registration
@@ -39,11 +42,11 @@ Route::prefix('student')->group(function () {
     //Student Login
     Route::get('/login', function () {
         return view('student-login');
-    })->name('login');
+    })->name('login.student');
     Route::post(
         '/login',
         [StudentsController::class, 'login_student']
-    )->name('login');
+    )->name('student.login');
 });
 
 
@@ -57,6 +60,7 @@ Route::prefix('teacher')->group(function () {
                 return view('teacher.dashboard');
             }
         )->name('teacher.dashboard');
+        Route::post('logout', [TeachersController::class, 'logout'])->name('teacher.logout');
     });
 
     // Teacher Registration
@@ -73,9 +77,9 @@ Route::prefix('teacher')->group(function () {
     //Teacher Login
     Route::get('/login', function () {
         return view('teacher-login');
-    })->name('login');
+    })->name('teacher.login');
     Route::post(
         '/login',
         [TeachersController::class, 'login_teacher']
-    )->name('login');
+    )->name('teacher.login');
 });

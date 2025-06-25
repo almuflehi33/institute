@@ -72,10 +72,23 @@
                             <i class="ti ti-lock"></i>
                             <span>Lock Screen</span>
                         </a>
-                        <a href="#!" class="dropdown-item">
-                            <i class="ti ti-power"></i>
-                            <span>Logout</span>
-                        </a>
+                        @if (Auth::guard('teacher')->check())
+                            <form method="POST" action="{{ route('teacher.logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item bg-transparent border-0 w-100 text-start">
+                                    <i class="ti ti-power"></i>
+                                    <span>Logout</span>
+                                </button>
+                            </form>
+                        @elseif(Auth::guard('student')->check())
+                            <form method="POST" action="{{ route('student.logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item bg-transparent border-0 w-100 text-start">
+                                    <i class="ti ti-power"></i>
+                                    <span>Logout</span>
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </li>
                 <li class="dropdown pc-h-item">
@@ -208,7 +221,8 @@
                         role="button" aria-haspopup="false" data-pc-auto-close="outside" aria-expanded="false">
                         <i data-feather="user"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown p-2 overflow-hidden">
+                    <div
+                        class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown p-2 overflow-hidden">
                         <div class="dropdown-header flex items-center justify-between py-4 px-5 bg-primary-500">
                             <div class="flex mb-1 items-center">
                                 <div class="shrink-0">
