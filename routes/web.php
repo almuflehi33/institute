@@ -11,7 +11,6 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/login',fn () => 'please login first')->name('login');
 //Student 
 // Student Dashboard
 Route::prefix('student')->group(function () {
