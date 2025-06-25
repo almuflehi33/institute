@@ -40,6 +40,18 @@
 <!-- [Body] Start -->
 
 <body>
+
+    <!-- [ Main Content ] start -->
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg fixed inset-0 bg-white dark:bg-themedark-cardbg z-[1034]">
+        <div class="loader-track h-[5px] w-full inline-block absolute overflow-hidden top-0">
+            <div
+                class="loader-fill w-[300px] h-[5px] bg-primary-500 absolute top-0 left-0 animate-[hitZak_0.6s_ease-in-out_infinite_alternate]">
+            </div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+
     <div class="auth-main relative">
         <div class="auth-wrapper v1 flex items-center w-full h-full min-h-screen">
             <div class="auth-form flex items-center justify-center grow flex-col min-h-screen relative p-6 ">
@@ -54,8 +66,7 @@
                         <span
                             class="absolute left-[-100px] bottom-[-100px] w-[300px] h-[300px] block rounded-full bg-theme-bg-2 animate-[floating_9s_infinite]"></span>
                     </div>
-
-                    <form method="POST" action="{{ route('register-student') }}">
+                    <form method="POST" action="{{ route('login-student') }}">
                         @csrf
                         <div class="card sm:my-12  w-full shadow-none">
                             <div class="card-body !p-10">
@@ -63,65 +74,52 @@
                                     <a href="#"><img src="../assets/images/logo-dark.svg" alt="img"
                                             class="mx-auto auth-logo" /></a>
                                 </div>
-                                <h4 class="text-center font-medium mb-4">Register</h4>
-                                <div class="grid grid-cols-12 gap-3 mb-3">
-                                    {{-- Full name input --}}
-                                    <div class="col-span-12">
-                                        <input type="text" name="name" value="{{ old('name') }}"
-                                            class="form-control" placeholder="Full Name" required>
-                                        @error('name')
-                                            <small class="text-red-500">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
+                                <h4 class="text-center font-medium mb-4">Login</h4>
                                 <div class="mb-3">
                                     {{-- Email input --}}
-                                    <input type="email" class="form-control" placeholder="Email Address" required
-                                        name="email" value="{{ old('email') }}">
+                                    <input type="email" class="form-control" id="floatingInput"
+                                        placeholder="Email Address" required name="email"
+                                        value="{{ old('email') }}" />
                                     @error('email')
                                         <small class="text-red-500">{{ $message }}</small>
                                     @enderror
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-4">
                                     {{-- Password input --}}
-                                    <input type="password" class="form-control" placeholder="Password" required
-                                        name="password">
+                                    <input type="password" class="form-control" id="floatingInput1" required
+                                        placeholder="Password" name="password" />
                                     @error('password')
                                         <small class="text-red-500">{{ $message }}</small>
                                     @enderror
                                 </div>
-                                <div class="mb-4">
-                                    {{-- Confirm Password input --}}
-                                    <input type="password" class="form-control" placeholder="Confirm Password" required
-                                        name="password_confirmation">
-                                </div>
                                 <div class="flex mt-1 justify-between items-center flex-wrap">
                                     <div class="form-check">
-                                        <input class="form-check-input input-primary" type="checkbox" name="terms"
-                                            id="customCheckc1" checked="" required />
-                                        @error('terms')
-                                            <small class="text-red-500">{{ $message }}</small>
-                                        @enderror
-                                        <label class="form-check-label text-muted" for="customCheckc1">I agree to all
-                                            the Terms &amp; Condition</label>
+                                        <input class="form-check-input input-primary" type="checkbox" id="customCheckc1"
+                                            checked="" />
+                                        <label class="form-check-label text-muted" for="customCheckc1">Remember
+                                            me?</label>
                                     </div>
+                                    <h6 class="font-normal text-primary-500 mb-0">
+                                        <a href="#"> Forgot Password? </a>
+                                    </h6>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    <button type="submit" class="btn btn-primary mx-auto shadow-2xl">Register</button>
+                                    <button type="submit" class="btn btn-primary mx-auto shadow-2xl">Login</button>
                                 </div>
                                 <div class="flex justify-between items-end flex-wrap mt-4">
-                                    <h6 class="font-medium mb-0">Already have an Account?</h6>
-                                    <a href="{{route('student.login')}}" class="text-primary-500">Login</a>
+                                    <h6 class="font-medium mb-0">Don't have an Account?</h6>
+                                    <a href="register-v1.html" class="text-primary-500">Create Account</a>
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
+
             </div>
         </div>
     </div>
     <!-- [ Main Content ] end -->
+
     <!-- Required Js -->
     <script src="{{ asset('assets/js/vendor-all.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/popper.min.js') }}"></script>
