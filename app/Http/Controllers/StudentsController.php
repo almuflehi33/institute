@@ -70,7 +70,7 @@ class StudentsController extends Controller
 
         $student = Student::where('email', $request->email)->first();
         if ($student) {
-             Mail::to($request->email)->send(new VerifyCodeMail($request->code));
+             Mail::to($request->email)->send(new VerifyCodeMail('123'));
            
         }
 
