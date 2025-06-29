@@ -36,6 +36,10 @@ Route::prefix('student')->group(function () {
         }
     )->name('register');
     Route::post(
+        '/sendVer',
+        [StudentsController::class, 'sendVerfication']
+    )->name('sendVer');
+    Route::post(
         '/register',
         [StudentsController::class, 'store']
     )->name('register');
