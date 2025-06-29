@@ -6,6 +6,8 @@ use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerifyCodeMail;
 
 class StudentsController extends Controller
 {
@@ -59,5 +61,19 @@ class StudentsController extends Controller
     {
         Auth::guard('student')->logout();
         return redirect('/student/login')->with('success', 'Logged out successfully');
+    }
+    public function sendVerification(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:students,email',
+        ]);
+
+        $student = Student::where('email', $request->email)->first();
+        if ($student) {
+             Mail::to($request->email)->send(new VerifyCodeMail($request->code));
+           
+        }
+
+        return back()->withErrors(['email' => 'Email not found']);
     }
 }
