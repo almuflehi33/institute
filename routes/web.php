@@ -34,11 +34,7 @@ Route::prefix('student')->group(function () {
         function () {
             return view('student-register');
         }
-<<<<<<< HEAD
     )->name('student.register');
-=======
-    )->name('registerforms');
->>>>>>> 0063d074a3a34e0dc0d4e5fadd2d1abd320ad4ce
     Route::post(
         '/sendVer',
         [StudentsController::class, 'sendVerification']
@@ -50,11 +46,7 @@ Route::prefix('student')->group(function () {
     //Student Login
     Route::get('/login', function () {
         return view('student-login');
-<<<<<<< HEAD
     })->name('student.login');
-=======
-    })->name('loginforms');
->>>>>>> 0063d074a3a34e0dc0d4e5fadd2d1abd320ad4ce
     Route::post(
         '/login',
         [StudentsController::class, 'login_student']
