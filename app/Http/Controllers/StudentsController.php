@@ -42,8 +42,15 @@ class StudentsController extends Controller
             'gender' => $request->gender ?? 'on' == 'on' ? 1 : 0, // Convert 'on' to 1 and null to 0
             'notes' => $request->notes,
         ]);
-        // Redirect to the student dashboard with a success message
-        return redirect()->route('student.dashboard')->with('success', 'Student registered successfully!');
+        
+        // login the student after registration
+         $credentials = $request->only('email', 'password');
+        if (Auth::guard(name: 'student')->attempt($credentials)) {
+            // Redirect to the student dashboard with a success message
+            return redirect('student/dashboard')->with('success', 'Student registered successfully!');
+        }else{
+            dd($student);
+        }
     }
 
     public function login_student(Request $request)
@@ -65,13 +72,12 @@ class StudentsController extends Controller
     public function sendVerification(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:students,email',
+            'email' => 'required|email',
         ]);
 
         $student = Student::where('email', $request->email)->first();
         if ($student) {
-             Mail::to($request->email)->send(new VerifyCodeMail($request->code));
-           
+            Mail::to($request->email)->send(new VerifyCodeMail('123'));
         }
 
         return back()->withErrors(['email' => 'Email not found']);

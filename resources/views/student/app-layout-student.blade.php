@@ -52,7 +52,7 @@
     <!-- [ Pre-loader ] End -->
 
     <!-- [ Sidebar Menu ] start -->
-    <x-main-nav />
+    <x-main-nav-student />
     <!-- [ Sidebar Menu ] end -->
 
     <!-- [ Header Topbar ] start -->
