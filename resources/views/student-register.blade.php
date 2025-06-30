@@ -63,7 +63,7 @@
                                     <a href="#"><img src="../assets/images/logo-dark.svg" alt="img"
                                             class="mx-auto auth-logo" /></a>
                                 </div>
-                                <h4 class="text-center font-medium mb-4">Register</h4>
+                                <h4 class="text-center font-medium mb-4">Register1</h4>
                                 <div class="grid grid-cols-12 gap-3 mb-3">
                                     {{-- Full name input --}}
                                     <div class="col-span-12">
@@ -108,13 +108,11 @@
                                 </div>
                                 <div class="mt-4 text-center">
                                     <button type="submit" class="btn btn-primary mx-auto shadow-2xl">Register</button>
-                                    @error('sendVer')
-                                        <small class="text-red-500">{{ $message }}</small>
-                                    @enderror
+
                                 </div>
                                 <div class="flex justify-between items-end flex-wrap mt-4">
                                     <h6 class="font-medium mb-0">Already have an Account?</h6>
-                                    <a href="{{ route('student.login') }}" class="text-primary-500">Login</a>
+                                    <a href="{{ route('student.dashboard') }}" class="text-primary-500">Login</a>
                                 </div>
                             </div>
                         </div>
