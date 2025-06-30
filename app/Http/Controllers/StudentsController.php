@@ -43,10 +43,14 @@ class StudentsController extends Controller
             'notes' => $request->notes,
         ]);
         
-        // Redirect to the student dashboard with a success message
-        redirect()->route('student.dashboard')->with('success', 'Student registered successfully!');
-
-        $this->sendVerification($request);
+        // login the student after registration
+         $credentials = $request->only('email', 'password');
+        if (Auth::guard(name: 'student')->attempt($credentials)) {
+            // Redirect to the student dashboard with a success message
+            return redirect('student/dashboard')->with('success', 'Student registered successfully!');
+        }else{
+            dd($student);
+        }
     }
 
     public function login_student(Request $request)

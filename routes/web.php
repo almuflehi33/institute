@@ -34,7 +34,7 @@ Route::prefix('student')->group(function () {
         function () {
             return view('student-register');
         }
-    )->name('register');
+    )->name('student.register');
     Route::post(
         '/sendVer',
         [StudentsController::class, 'sendVerfication']
@@ -46,7 +46,7 @@ Route::prefix('student')->group(function () {
     //Student Login
     Route::get('/login', function () {
         return view('student-login');
-    })->name('login.student');
+    })->name('student.login');
     Route::post(
         '/login',
         [StudentsController::class, 'login_student']
