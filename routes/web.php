@@ -81,7 +81,7 @@ Route::prefix('teacher')->group(function () {
     //Teacher Login
     Route::get('/login', function () {
         return view('teacher-login');
-    })->name('loginformt');
+    })->name('teacher.login');
     Route::post(
         '/login',
         [TeachersController::class, 'login_teacher']

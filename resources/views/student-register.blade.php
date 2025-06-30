@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="flex justify-between items-end flex-wrap mt-4">
                                     <h6 class="font-medium mb-0">Already have an Account?</h6>
-                                    <a href="{{ route('student.dashboard') }}" class="text-primary-500">Login</a>
+                                    <a href="{{ route('student.login') }}" class="text-primary-500">Login</a>
                                 </div>
                             </div>
                         </div>
