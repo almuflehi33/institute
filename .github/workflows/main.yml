@@ -78,7 +78,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: deploy/
           server-dir: /public_html/institute/
-          dangerous-clean-slate: false
-          exclude: |
-           **/vendor/**
-           **/node_modules/**
+          #dangerous-clean-slate: false
+          #exclude: |
+          # **/vendor/**
+          #**/node_modules/**
