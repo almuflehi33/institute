@@ -24,7 +24,7 @@ Route::prefix('student')->group(function () {
             function () {
                 return view('student.dashboard');
             }
-        )->name('student.dashboard');
+        )->name('dashboard');
         Route::post('logout', [StudentsController::class, 'logout'])->name('student.logout');
     });
 
@@ -34,19 +34,27 @@ Route::prefix('student')->group(function () {
         function () {
             return view('student-register');
         }
+<<<<<<< HEAD
     )->name('student.register');
+=======
+    )->name('registerforms');
+>>>>>>> 0063d074a3a34e0dc0d4e5fadd2d1abd320ad4ce
     Route::post(
         '/sendVer',
-        [StudentsController::class, 'sendVerfication']
+        [StudentsController::class, 'sendVerification']
     )->name('sendVer');
     Route::post(
         '/register',
         [StudentsController::class, 'store']
-    )->name('register');
+    )->name('student.register');
     //Student Login
     Route::get('/login', function () {
         return view('student-login');
+<<<<<<< HEAD
     })->name('student.login');
+=======
+    })->name('loginforms');
+>>>>>>> 0063d074a3a34e0dc0d4e5fadd2d1abd320ad4ce
     Route::post(
         '/login',
         [StudentsController::class, 'login_student']
@@ -73,15 +81,15 @@ Route::prefix('teacher')->group(function () {
         function () {
             return view('teacher-register');
         }
-    )->name('register');
+    )->name('registerformt');
     Route::post(
         '/register',
         [TeachersController::class, 'store']
-    )->name('register');
+    )->name('teacher.register');
     //Teacher Login
     Route::get('/login', function () {
         return view('teacher-login');
-    })->name('teacher.login');
+    })->name('loginformt');
     Route::post(
         '/login',
         [TeachersController::class, 'login_teacher']

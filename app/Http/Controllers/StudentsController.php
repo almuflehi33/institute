@@ -72,7 +72,7 @@ class StudentsController extends Controller
     public function sendVerification(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:students,email',
+            'email' => 'required|email',
         ]);
 
         $student = Student::where('email', $request->email)->first();
